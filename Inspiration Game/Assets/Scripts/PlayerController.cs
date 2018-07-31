@@ -145,11 +145,12 @@ public class PlayerController : MonoBehaviour {
             }
 
             //movement
-            player.Translate(playerSpeed * inDevice.LeftStickX, 0, playerSpeed * inDevice.LeftStickY *Time.deltaTime);
+            player.Translate(playerSpeed * inDevice.LeftStickX /** Time.deltaTime*/, 0, playerSpeed * inDevice.LeftStickY /**Time.deltaTime*/);
+           
         }
-        
 
-        
+
+
 
         //adjust reload time
         bigTimer += Time.deltaTime;
