@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour {
 	public LineRenderer aimLine;          //aimer for lazer
 
 	public LayerMask layerMask;
+	public LayerMask aimerMask;
 
 	//Playtesting bools
 	//-----------------------------------
@@ -57,7 +58,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindWithTag ("Player");
+		player = GameObject.Find ("PlayerBody");
 		agent = gameObject.GetComponent<NavMeshAgent> (); 
 		agent.SetDestination (player.transform.position); //this tells the enemy where to move to on the navmesh
 
@@ -122,7 +123,7 @@ public class EnemyMovement : MonoBehaviour {
 			if (Physics.Raycast(transform.position, transform.forward, out rayHit, lineOfSightDist, layerMask))
 			{
 				Debug.DrawRay (transform.position, transform.forward * rayHit.distance, Color.magenta);
-				if (rayHit.collider.gameObject.tag == "Player" || rayHit.collider.gameObject.tag == "Hit")
+				if (rayHit.collider.gameObject.tag == "Player" || rayHit.collider.gameObject.tag == "Hit"|| rayHit.collider.gameObject.tag == "Swish")
 				{
 					inLineOfSight = true;
 				}
@@ -249,11 +250,19 @@ public class EnemyMovement : MonoBehaviour {
 				//directionFinder.LookAt (player.transform); 
 				if (Physics.Raycast(transform.position, player.transform.position-transform.position, out rayHit, lineOfSightDist, layerMask) && timeSiceLastShot > minTimeBetweenShots) {
 					Debug.DrawRay (transform.position, (player.transform.position-transform.position) * rayHit.distance, Color.magenta);
-					if (rayHit.collider.gameObject.tag == "Player" || rayHit.collider.gameObject.tag == "Hit") {
+					if (rayHit.collider.gameObject.tag == "Player" || rayHit.collider.gameObject.tag == "Hit" || rayHit.collider.gameObject.tag == "Swish") {
 						inLineOfSight = true;
 						directionFinder.LookAt (player.transform);
 						lazerDirection = directionFinder.rotation;
-						finalLazerPoint = rayHit.point;
+
+						//this gets the furtherest possible point for the lazer to travel
+						RaycastHit aimerRayHit;
+						if (Physics.Raycast(transform.position, player.transform.position-transform.position, out aimerRayHit, Mathf.Infinity, aimerMask)) 
+						{
+							finalLazerPoint = aimerRayHit.point;
+						}
+			
+						//finalLazerPoint = rayHit.point;
 						//playerDirectionChosen = true;
 						//if (inLineOfSight == false) {
 						//	lazerDirection = directionFinder.transform.rotation;
@@ -271,7 +280,7 @@ public class EnemyMovement : MonoBehaviour {
 				print ("Angle: " + Quaternion.Angle(transform.rotation, lazerDirection));
 				if (isFiring == false && timeSiceLastShot > minTimeBetweenShots) 
 				{
-					Invoke ("showAimer", 0.75f);
+					Invoke ("showAimer", 0.9f);
 					Invoke ("Fire", shootDelay);
 					isFiring = true;
 				}
