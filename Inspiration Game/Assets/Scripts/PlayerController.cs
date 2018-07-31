@@ -11,17 +11,20 @@ public class PlayerController : MonoBehaviour {
     public bool isBigParry, isSmallParry, isControllerConnected;
     public float playerHealth, swishSpeed, maxSwishTime;
     public GameObject Health1, Health2, Health3, Health4;
+    public Material standardMaterial, hitMaterial;
+    public float maxInvulnerableTime;
 
     private Vector3 dir;
     private Transform player, playerBody, lookTarget, swishPivot;
     private MeshRenderer bigHitMesh, smallHitMesh;
-    private bool canBigHit, canSmallHit, performSwish, swishRight;
+    private bool canBigHit, canSmallHit, performSwish, swishRight, isInvulnerable;
     private float bigTimer, smallTimer, currSwishTime;
     private Rigidbody playerRB;
     private Vector3 playerSwishPos;
     private GameObject SwishObj;
     private TrailRenderer swishTrail;
     private Quaternion playerSwishRotation;
+    private Renderer AliceRenderer;
 
     AudioSource myAudSource;
     
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour {
         SwishObj = GameObject.Find("Swish");
         swishTrail = GameObject.Find("Swish").GetComponent<TrailRenderer>();
         swishPivot = GameObject.Find("SwishPivot").GetComponent<Transform>();
+        AliceRenderer = GameObject.Find("node_id5").GetComponent<Renderer>();
         playerSwishPos = playerBody.transform.position;
 
         swishTrail.enabled = false;
@@ -55,10 +59,18 @@ public class PlayerController : MonoBehaviour {
 
 		isControllerConnected = false;
 
+        isInvulnerable = false;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+        //testing
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            HurtPlayer();
+        }
+
 
         //swish animation!
         if (performSwish)
@@ -171,24 +183,32 @@ public class PlayerController : MonoBehaviour {
 
     public void HurtPlayer()
     {
-        playerHealth--;
-        if(playerHealth ==3)
+        if(!isInvulnerable)
         {
-            Health4.SetActive(false);
-        }
-        else if(playerHealth == 2)
-        {
-            Health3.SetActive(false);
-        }
-        else if(playerHealth == 1)
-        {
-            Health2.SetActive(false);
-        }
-        else
-        {
-            Health1.SetActive(false);
-            myAudSource.PlayOneShot(audioLib.playerDeath);
-            GameOver();
+            playerHealth--;
+            //player flashes red when hurt and is invulnerable for a short period
+            StartCoroutine(ColourFlash());
+
+            //changing the health UI according to the health of player
+            if (playerHealth == 3)
+            {
+                Health4.SetActive(false);
+            }
+            else if (playerHealth == 2)
+            {
+                Health3.SetActive(false);
+            }
+            else if (playerHealth == 1)
+            {
+                Health2.SetActive(false);
+            }
+            else
+            {
+                //GAME OVER
+                Health1.SetActive(false);
+               // myAudSource.PlayOneShot(audioLib.playerDeath);
+                GameOver();
+            }
         }
         
     }
@@ -197,6 +217,15 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("You died!");
         SceneManager.LoadScene("GameOver");
+    }
+
+    IEnumerator ColourFlash()
+    {
+        isInvulnerable = true;
+        AliceRenderer.material = hitMaterial;
+        yield return new WaitForSecondsRealtime(maxInvulnerableTime);
+        AliceRenderer.material = standardMaterial;
+        isInvulnerable = false;
     }
 
     IEnumerator ShowBigHit()
@@ -212,22 +241,12 @@ public class PlayerController : MonoBehaviour {
         {
             swishPivot.rotation = Quaternion.Euler(playerBody.eulerAngles.x, playerBody.eulerAngles.y + 180, playerBody.eulerAngles.z);
         }
-        /*if (swishRight)
-        {
-            SwishObj.transform.localPosition = new Vector3(playerBody.position.x - 2f, playerBody.position.y, playerBody.position.z);
-        }
-        else
-        {
-            SwishObj.transform.localPosition = new Vector3(playerBody.position.x + 2f, playerBody.position.y, playerBody.position.z);
-        }*/
-        // playerSwishRotation = playerBody.rotation;
+        
         performSwish = true;
         canBigHit = false;
-       // bigHitMesh.enabled = true;
         isBigParry = true;
         yield return new WaitForSecondsRealtime(bigHitDuration);
         isBigParry = false;
-        bigHitMesh.enabled = false;
     }
 
     IEnumerator ShowSmallHit()
@@ -243,23 +262,11 @@ public class PlayerController : MonoBehaviour {
         {
             swishPivot.rotation = Quaternion.Euler(playerBody.eulerAngles.x, playerBody.eulerAngles.y+180, playerBody.eulerAngles.z);
         }
-        /* if (swishRight)
-         {
-             SwishObj.transform.position = new Vector3(playerBody.position.x - 2f, playerBody.position.y, playerBody.position.z);
-         }
-         else
-         {
-             SwishObj.transform.position = new Vector3(playerBody.position.x + 2f, playerBody.position.y, playerBody.position.z);
-         }*/
-        //playerSwishPos = playerBody.transform.position;
-        // playerSwishRotation = playerBody.rotation;
         performSwish = true;
         canSmallHit = false;
-       // smallHitMesh.enabled = true;
         isSmallParry = true;
         yield return new WaitForSecondsRealtime(smallHitDuration);
         isSmallParry = false;
-        smallHitMesh.enabled = false;
     }
 
 
