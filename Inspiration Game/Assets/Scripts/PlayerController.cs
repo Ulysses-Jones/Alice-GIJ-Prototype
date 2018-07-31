@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject Health1, Health2, Health3, Health4;
     public Material standardMaterial, hitMaterial;
     public float maxInvulnerableTime;
+    public GameObject aimPointer;
 
     private Vector3 dir;
     private Transform player, playerBody, lookTarget, swishPivot;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        aimPointer.SetActive(false);
 		player = GameObject.Find("Player").GetComponent<Transform>();
 		playerBody = GameObject.Find("PlayerBody").GetComponent<Transform>();
 		bigHitMesh = GameObject.Find("BigHit").GetComponent<MeshRenderer>();
@@ -140,6 +142,7 @@ public class PlayerController : MonoBehaviour {
         
         if (inDevice.LeftTrigger.IsPressed)
         {
+            aimPointer.SetActive(true);
             //parrying with a precision shot
             if (inDevice.Action3.IsPressed)
             {
@@ -149,6 +152,7 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            aimPointer.SetActive(false);
             //standard parry
             if (inDevice.Action3.IsPressed)
             {
@@ -290,6 +294,7 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetMouseButton(1))
             {
+                aimPointer.SetActive(true);
                 //parrying with a precision shot
                 if (Input.GetMouseButton(0))
                 {
@@ -304,6 +309,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
+                aimPointer.SetActive(false);
                 //standard parry
                 if (Input.GetMouseButton(0))
                 {
