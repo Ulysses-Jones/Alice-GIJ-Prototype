@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float playerSpeed, rotationSpeed, bigReload, smallReload, bigHitDuration, smallHitDuration;
     public bool isBigParry, isSmallParry, isControllerConnected;
     public float playerHealth, swishSpeed, maxSwishTime;
+    public GameObject Health1, Health2, Health3, Health4;
 
     private Vector3 dir;
     private Transform player, playerBody, lookTarget, swishPivot;
@@ -30,7 +32,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find("Player").GetComponent<Transform>();
 		playerBody = GameObject.Find("PlayerBody").GetComponent<Transform>();
-		lookTarget = GameObject.Find("LookTarget").GetComponent<Transform>();
 		bigHitMesh = GameObject.Find("BigHit").GetComponent<MeshRenderer>();
 		smallHitMesh = GameObject.Find("SmallHit").GetComponent<MeshRenderer>();
         playerRB = GameObject.Find("PlayerBody").GetComponent<Rigidbody>();
@@ -93,14 +94,21 @@ public class PlayerController : MonoBehaviour {
 
 
         InputDevice inDevice = InputManager.ActiveDevice;
-        Debug.Log(Input.GetJoystickNames().Length);
-        if (InputManager.Devices.Count<=0)
+      //  Debug.Log(Input.GetJoystickNames().Length);
+        try
+        {
+            if (InputManager.Devices.Count > 0 )
+            {
+                isControllerConnected = true;
+            }
+            else
+            {
+                isControllerConnected = false;
+            }
+        }
+        catch(Exception e)
         {
             isControllerConnected = false;
-        }
-        else
-        {
-            isControllerConnected = true;
         }
 
         //rotates if player is holding LT, otherwise moves and rotates in direction of movement
@@ -163,17 +171,31 @@ public class PlayerController : MonoBehaviour {
     public void HurtPlayer()
     {
         playerHealth--;
-        if(playerHealth < 1)
+        if(playerHealth ==3)
         {
-            
+            Health4.SetActive(false);
+        }
+        else if(playerHealth == 2)
+        {
+            Health3.SetActive(false);
+        }
+        else if(playerHealth == 1)
+        {
+            Health2.SetActive(false);
+        }
+        else
+        {
+            Health1.SetActive(false);
             myAudSource.PlayOneShot(audioLib.playerDeath);
             GameOver();
         }
+        
     }
 
     void GameOver()
     {
         Debug.Log("You died!");
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator ShowBigHit()
@@ -280,7 +302,7 @@ public class PlayerController : MonoBehaviour {
                     if (canBigHit)
                     {
                         StartCoroutine(ShowBigHit());
-                        myAudSource.PlayOneShot(audioLib.playerAttackWide);
+                       // myAudSource.PlayOneShot(audioLib.playerAttackWide);
                     }
 
                 }
