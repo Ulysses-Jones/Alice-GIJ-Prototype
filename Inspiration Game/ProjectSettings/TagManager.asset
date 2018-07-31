@@ -8,6 +8,7 @@ TagManager:
   - Hit
   - Enemy
   - Lazer
+  - Zone
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114424812784666378}
   m_Layer: 11
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114328807911892174}
   m_Layer: 11
   m_Name: CircleZone
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114804822305099566}
   m_Layer: 11
   m_Name: BarBack
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114484168814881572}
   m_Layer: 11
   m_Name: FillingImage
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 114210411447294384}
   m_Layer: 11
   m_Name: Bar
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 114451644646140010}
   m_Layer: 11
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,8 +122,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258963698773458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -127.02, y: -75.497, z: -43.84}
-  m_LocalScale: {x: 4.9818134, y: 0.041449755, z: 4.9818234}
+  m_LocalPosition: {x: 6.80554, y: -1.0389999, z: 10.172676}
+  m_LocalScale: {x: 4.9818134, y: 0.001, z: 4.9818234}
   m_Children:
   - {fileID: 224775654713666774}
   - {fileID: 224742827877240478}
