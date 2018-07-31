@@ -137,8 +137,8 @@ public class BulletController : MonoBehaviour {
 		} 
 		else 
 		{
-			//we don't want to destroy the lazer on contact, and we don't want bullets to destroy eachother
-			if (hit.gameObject.tag != "Bullet" && bulletType == BulletType.Projectile) {
+			//we don't want to destroy the lazer on contact, and we don't want bullets to destroy eachother or the player's reflecter to destroy them
+			if (hit.gameObject.tag != "Bullet" && hit.gameObject.tag != "Enemy" && hit.gameObject.tag != "PlayerBullet" && hit.gameObject.tag != "Hit" && hit.gameObject.tag != "Zone" && bulletType == BulletType.Projectile) {
 				destroyBullet ();
 			}
 		}
