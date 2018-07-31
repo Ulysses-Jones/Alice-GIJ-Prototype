@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         NumEnemies = 0;
-        IsSpawning = true;
+        //IsSpawning = true;
 
         for(int k=0; k<MaxEnemies; k++)
         {
