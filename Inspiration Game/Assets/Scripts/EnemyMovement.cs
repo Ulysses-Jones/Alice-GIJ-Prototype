@@ -402,4 +402,13 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
+	void OnCollisionEnter(Collision hit)
+	{
+		if (enemyType == EnemyType.Fodderbot && hit.gameObject.tag == "Player")
+		{
+			HurtEnemy();
+			playerScript.HurtPlayer ();
+		}
+	}
+
 }

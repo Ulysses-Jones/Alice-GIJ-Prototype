@@ -468,7 +468,10 @@ MonoBehaviour:
   aimLine: {fileID: 120683728822177396}
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 4294963711
+  aimerMask:
+    serializedVersion: 2
+    m_Bits: 4294963455
   rotateWithCode: 1
   rotateWhileStill: 1
   isMoving: 1
