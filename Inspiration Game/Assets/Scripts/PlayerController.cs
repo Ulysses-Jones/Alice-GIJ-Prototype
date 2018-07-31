@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 
         swishTrail.enabled = false;
 
-        audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
+        //audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
 
 		canBigHit = false;
 		canSmallHit = false;
