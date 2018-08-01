@@ -188,6 +188,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
