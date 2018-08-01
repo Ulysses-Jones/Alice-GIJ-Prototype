@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955970499776824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.555925, y: -0.7351885, z: 8.041343}
+  m_LocalPosition: {x: 6.373748, y: 0.96, z: 25.008316}
   m_LocalScale: {x: 0.60962325, y: 0.60962296, z: 0.60962296}
   m_Children:
   - {fileID: 4169197343669130}
@@ -188,7 +188,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
-  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
+  newMat: {fileID: 2100000, guid: daea9ec1c9575394e824ebab635c657a, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
