@@ -326,15 +326,20 @@ MonoBehaviour:
   lineOfSightDist: 15
   numPatrolPoints: 3
   distBetweenPatrolPoints: 15
+  aimLine: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 4294963711
+  aimerMask:
+    serializedVersion: 2
+    m_Bits: 0
   rotateWithCode: 1
   rotateWhileStill: 0
   isMoving: 1
   isFiring: 0
   inLineOfSight: 0
   directionFinder: {fileID: 4319289394834172}
+  enemySpawnScript: {fileID: 0}
 --- !u!135 &135173693357519458
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -396,7 +401,7 @@ NavMeshAgent:
   m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 4
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
