@@ -43,6 +43,7 @@ public class EnemySpawner : MonoBehaviour {
                         EnemyPool[k].transform.position = SpawnPoints[rand].position;
                         EnemyPool[k].transform.rotation = transform.rotation;
                         EnemyPool[k].SetActive(true);
+						EnemyPool [k].GetComponent<EnemyMovement> ().enemySpawnScript = this;
                         break;
                     }
                 }

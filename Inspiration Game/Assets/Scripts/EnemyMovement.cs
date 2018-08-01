@@ -47,6 +47,9 @@ public class EnemyMovement : MonoBehaviour {
 
 	public Transform directionFinder;     //transform dedicated to looking at the player, for slerping purposes
 
+	[HideInInspector]
+	public EnemySpawner enemySpawnScript;
+
 	private float timeSiceLastShot = 0;
 	private Vector3 nextPoint;            //specifically for pumpKing. Stores it's next position to move to.
 	private Vector3[] patrolPoints;   //specifically for LazerBot 626. These are the points it will patrol between
@@ -351,13 +354,13 @@ public class EnemyMovement : MonoBehaviour {
                 agent.isStopped = true;
                 if (enemyType == EnemyType.GoonBot)
                 {
-                    EnemySpawner enemySpawnScript = GameObject.Find("GoonSpawner").GetComponent<EnemySpawner>();
+                    //EnemySpawner enemySpawnScript = GameObject.Find("GoonSpawner").GetComponent<EnemySpawner>();
                     enemySpawnScript.NumEnemies--;
                     this.gameObject.SetActive(false);
                 }
                 else if (enemyType == EnemyType.Fodderbot)
                 {
-                    EnemySpawner enemySpawnScript = GameObject.Find("FodderSpawner").GetComponent<EnemySpawner>();
+                    //EnemySpawner enemySpawnScript = GameObject.Find("FodderSpawner").GetComponent<EnemySpawner>();
                     enemySpawnScript.NumEnemies--;
                     this.gameObject.SetActive(false);
                 }
