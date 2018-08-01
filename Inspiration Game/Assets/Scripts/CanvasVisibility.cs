@@ -64,7 +64,19 @@ public class CanvasVisibility : MonoBehaviour {
         }
     }
 
-    
+    public void AssignPlayerHealth()
+    {
+        PlayerController tempPlayerScript = GameObject.Find("PlayerBody").GetComponent<PlayerController>();
+        
+        if (tempPlayerScript != null)
+        {
+            for (int i = 0; i < tempPlayerScript.HealthObj.Length; i++)
+            {
+                tempPlayerScript.HealthObj[i] = gameObject.transform.GetChild(1).transform.GetChild(0).transform.GetChild(i).gameObject;
+            }
+        }
+        
+    }
 
     public void ForeignInvoke( string funcName, float callTime)
     {

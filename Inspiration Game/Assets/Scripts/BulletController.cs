@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour {
 	public Vector3 direction = Vector3.up;
 	public float lifeTime = 10;                //how long the bullet can exist for in seconds
     public bool isPlayerBullet;
+	public Material newMat;
 
 	public enum BulletType 
 	{
@@ -103,12 +104,16 @@ public class BulletController : MonoBehaviour {
             {
                 transform.forward = Vector3.Reflect(this.direction, playerTrans.forward);
                 isPlayerBullet = true;
+				gameObject.GetComponent<MeshRenderer> ().material = newMat;
             }
             else if (playerScript.isSmallParry)
             {
                 transform.forward = playerTrans.forward;
                 isPlayerBullet = true;
+				gameObject.GetComponent<MeshRenderer> ().material = newMat;
             }
+
+
             
         }
     }
@@ -138,7 +143,7 @@ public class BulletController : MonoBehaviour {
 		else 
 		{
 			//we don't want to destroy the lazer on contact, and we don't want bullets to destroy eachother or the player's reflecter to destroy them
-			if (hit.gameObject.tag != "Bullet" && hit.gameObject.tag != "Enemy" && hit.gameObject.tag != "PlayerBullet" && hit.gameObject.tag != "Hit" && hit.gameObject.tag != "Zone" && bulletType == BulletType.Projectile) {
+			if (hit.gameObject.tag != "Lazer" && hit.gameObject.tag != "Bullet" && hit.gameObject.tag != "Enemy" && hit.gameObject.tag != "PlayerBullet" && hit.gameObject.tag != "Hit" && hit.gameObject.tag != "Zone" && bulletType == BulletType.Projectile) {
 				destroyBullet ();
 			}
 		}

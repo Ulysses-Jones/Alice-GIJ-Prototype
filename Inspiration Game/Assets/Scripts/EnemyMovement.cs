@@ -352,18 +352,11 @@ public class EnemyMovement : MonoBehaviour {
             if (health <= 0)
             {
                 agent.isStopped = true;
-                if (enemyType == EnemyType.GoonBot)
-                {
-                    //EnemySpawner enemySpawnScript = GameObject.Find("GoonSpawner").GetComponent<EnemySpawner>();
-                    enemySpawnScript.NumEnemies--;
-                    this.gameObject.SetActive(false);
-                }
-                else if (enemyType == EnemyType.Fodderbot)
-                {
-                    //EnemySpawner enemySpawnScript = GameObject.Find("FodderSpawner").GetComponent<EnemySpawner>();
-                    enemySpawnScript.NumEnemies--;
-                    this.gameObject.SetActive(false);
-                }
+                
+                //EnemySpawner enemySpawnScript = GameObject.Find("FodderSpawner").GetComponent<EnemySpawner>();
+                enemySpawnScript.NumEnemies--;
+                this.gameObject.SetActive(false);
+                
                 //die
             }
         }
@@ -393,6 +386,12 @@ public class EnemyMovement : MonoBehaviour {
 			(Vector3.Distance(transform.position, player.transform.position) < 5)*/ )
             {
                 nextPoint = (player.transform.position + (Random.onUnitSphere * 15));
+				NavMeshHit meshPointHit;
+				//patrolPoints.Add (new Vector3(555,555,555));     //way too far out to be on the navmesh
+				while (!NavMesh.SamplePosition(nextPoint, out meshPointHit, 5f, NavMesh.AllAreas))
+				{
+					nextPoint = (player.transform.position + (Random.onUnitSphere * 15));
+				}
             }
             agent.SetDestination(nextPoint);
         }
@@ -434,7 +433,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         if (gameObject.activeSelf)
         {
-            if (other.gameObject.name == "BigHit" && playerScript.isBigParry)
+			if (other.gameObject.name == "BigHit" && (playerScript.isBigParry || playerScript.isSmallParry))
             {
                 HurtEnemy();
             }
