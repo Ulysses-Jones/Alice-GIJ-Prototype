@@ -38,21 +38,23 @@ public class SceneManagementScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        
+
 
         InputDevice inDevice = InputManager.ActiveDevice;
 
         if ((inDevice.MenuWasPressed || Input.GetKeyDown(KeyCode.Return)) && SceneManager.GetActiveScene().buildIndex == 0)//LOAD TUTORIAL
         {
             FadeOut();
-            
+
             canvas.ForeignInvoke("StartScreenOff", 0.5f);
 
-            Invoke("LoadTutorial1",0.7f);
+            Invoke("LoadTutorial1", 0.7f);
+
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
 
             Invoke("FadeIn", 0.75f);
-            canvas.ForeignInvoke("GameScreenOn",1f);
-           
+            canvas.ForeignInvoke("GameScreenOn", 1f);
+
         }
         else if ((inDevice.Action1.IsPressed || Input.GetKeyDown(KeyCode.Alpha1)) && SceneManager.GetActiveScene().buildIndex == 0)//LOAD LEVEL 1
         {
@@ -61,17 +63,19 @@ public class SceneManagementScript : MonoBehaviour {
 
             Invoke("LoadLevel1", 0.7f);
 
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
+
             Invoke("FadeIn", 0.75f);
             canvas.ForeignInvoke("GameScreenOn", 1f);
         }
-        else if (inDevice.Action2.IsPressed && SceneManager.GetActiveScene().buildIndex == 0)//QUIT GAME
+        else if ((inDevice.Action2.IsPressed || Input.GetKeyDown(KeyCode.Escape)) && (SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 6 || SceneManager.GetActiveScene().buildIndex == 7))//QUIT GAME
         {
             FadeOut();
             canvas.ForeignInvoke("StartScreenOff", 0.5f);
 
             Invoke("QuitGame", 0.6f);
         }
-        else if (inDevice.MenuWasPressed && SceneManager.GetActiveScene().buildIndex > 0)//LEAVE TO START SCREEN
+        else if ((inDevice.MenuWasPressed || Input.GetKeyDown(KeyCode.Return)) && SceneManager.GetActiveScene().buildIndex > 0)//LEAVE TO START SCREEN
         {
             FadeOut();
             canvas.ForeignInvoke("GameScreenOff", 0.5f);
@@ -88,6 +92,8 @@ public class SceneManagementScript : MonoBehaviour {
 
             Invoke("LoadLevel2", 0.7f);
 
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
+
             Invoke("FadeIn", 0.75f);
             canvas.ForeignInvoke("GameScreenOn", 1f);
         }
@@ -98,8 +104,36 @@ public class SceneManagementScript : MonoBehaviour {
 
             Invoke("LoadLevel3", 0.7f);
 
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
+
             Invoke("FadeIn", 0.75f);
             canvas.ForeignInvoke("GameScreenOn", 1f);
+        }
+        else if ((inDevice.Action1 || Input.GetKeyDown(KeyCode.Return)) && SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            FadeOut();
+            canvas.ForeignInvoke("StartScreenOff", 0.5f);
+
+            Invoke("LoadLevel1", 0.7f);
+
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
+
+            Invoke("FadeIn", 0.75f);
+            canvas.ForeignInvoke("GameScreenOn", 1f);
+        }
+        else if ((inDevice.DPadDown || Input.GetKeyDown(KeyCode.Backspace)) && (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex < 6))
+        {
+            FadeOut();
+            canvas.ForeignInvoke("StartScreenOff", 0.5f);
+            canvas.ForeignInvoke("GameScreenOff", 0.5f);
+
+            Invoke("ReloadLevel", 0.7f);
+
+            canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
+
+            Invoke("FadeIn", 0.75f);
+            canvas.ForeignInvoke("GameScreenOn", 1f);
+
         }
 
 
@@ -121,6 +155,10 @@ public class SceneManagementScript : MonoBehaviour {
     }
 
 
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     public void LoadStart()
     {
@@ -130,6 +168,7 @@ public class SceneManagementScript : MonoBehaviour {
     public void LoadTutorial1()
     {
         SceneManager.LoadScene(1);
+
     }
 
     public void LoadTutorial2()
@@ -162,12 +201,12 @@ public class SceneManagementScript : MonoBehaviour {
 
     public void LoadLoseScreen()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
     }
 
     public void LoadWinScreen()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(6);
     }
 
     public void PlayerLoss()
@@ -176,7 +215,7 @@ public class SceneManagementScript : MonoBehaviour {
         canvas.ForeignInvoke("StartScreenOff", 0.5f);
         canvas.ForeignInvoke("GameScreenOff", 0.5f);
 
-        Invoke("LoadNextLevel", 0.7f);
+        Invoke("LoadLoseScreen", 0.7f);
 
         Invoke("FadeIn", 0.75f);
         
@@ -201,6 +240,7 @@ public class SceneManagementScript : MonoBehaviour {
         canvas.ForeignInvoke("GameScreenOff", 0.5f);
 
         Invoke("LoadNextLevel", 0.7f);
+        canvas.ForeignInvoke("AssignPlayerHealth", 0.75f);
 
         Invoke("FadeIn", 0.75f);
         canvas.ForeignInvoke("GameScreenOn", 1f);

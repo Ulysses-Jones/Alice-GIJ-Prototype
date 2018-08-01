@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour {
     public float playerSpeed, rotationSpeed, bigReload, smallReload, bigHitDuration, smallHitDuration;
     public bool isBigParry, isSmallParry, isControllerConnected;
     public float playerHealth, swishSpeed, maxSwishTime;
-    public GameObject Health1, Health2, Health3, Health4;
+    //public GameObject Health1, Health2, Health3, Health4;
+    public GameObject [] HealthObj = new GameObject [4];
     public Material standardMaterial, hitMaterial;
     public float InvulnerableTime = 1f;
     public float ColourChangeTime =0.2f;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour {
     AudioSource myAudSource;
     audioLibrary audioLib;
 
+    SceneManagementScript sceneScript;
+
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +53,15 @@ public class PlayerController : MonoBehaviour {
 
         audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
         myAudSource = playerBody.GetComponent<AudioSource>();
+
+        sceneScript = GameObject.Find("gameManager").GetComponent<SceneManagementScript>();
+
+        GameObject tempHealthFinder = GameObject.Find("pHealthContainer");
+
+        for (int i = 0; i< HealthObj.Length;i++)
+        {
+            HealthObj[i] = tempHealthFinder.transform.GetChild(i).gameObject;
+        }
 
 		canBigHit = false;
 		canSmallHit = false;
@@ -209,28 +221,27 @@ public class PlayerController : MonoBehaviour {
             //changing the health UI according to the health of player
             if (playerHealth == 3)
             {
-                Health4.SetActive(false);
+                HealthObj[3].SetActive(false);
             }
             else if (playerHealth == 2)
             {
-                Health3.SetActive(false);
+                HealthObj[2].SetActive(false);
             }
             else if (playerHealth == 1)
             {
-                Health2.SetActive(false);
+                HealthObj[1].SetActive(false);
             }
             else
             {
                 //GAME OVER
-                Health1.SetActive(false);
+                HealthObj[0].SetActive(false);
 
                 myAudSource.Stop();
                 myAudSource.volume = 0.2f;
-                myAudSource.clip = audioLib.pAttackWide;
+                myAudSource.clip = audioLib.pDeath;
                 myAudSource.Play();
-
-
-                GameOver();
+                
+                Invoke("GameOver",0.5f);
             }
         }
         
@@ -238,8 +249,9 @@ public class PlayerController : MonoBehaviour {
 
     void GameOver()
     {
+        //CancelInvoke();
         Debug.Log("You died!");
-        SceneManager.LoadScene("GameOver");
+        sceneScript.PlayerLoss();
     }
 
     IEnumerator ColourFlash()
