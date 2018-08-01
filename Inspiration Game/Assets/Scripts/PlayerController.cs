@@ -147,7 +147,14 @@ public class PlayerController : MonoBehaviour {
             if (inDevice.Action3.IsPressed)
             {
                 if(canSmallHit)
+                {
+                    myAudSource.Stop();
+                    myAudSource.clip = audioLib.pAttackPrecise;
+                    myAudSource.Play();
+
                     StartCoroutine(ShowSmallHit());
+                }
+                    
             }
         }
         else
@@ -157,7 +164,12 @@ public class PlayerController : MonoBehaviour {
             if (inDevice.Action3.IsPressed)
             {
                 if(canBigHit)
+                {
+                   
+
                     StartCoroutine(ShowBigHit());
+                }
+                    
             }
 
             //movement
@@ -193,8 +205,6 @@ public class PlayerController : MonoBehaviour {
             //player flashes red when hurt and is invulnerable for a short period
             StartCoroutine(ColourFlash());
 
-            
-
             //changing the health UI according to the health of player
             if (playerHealth == 3)
             {
@@ -214,9 +224,11 @@ public class PlayerController : MonoBehaviour {
                 Health1.SetActive(false);
 
                 myAudSource.Stop();
-                myAudSource.clip = audioLib.pDeath;
+                myAudSource.volume = 0.2f;
+                myAudSource.clip = audioLib.pAttackWide;
                 myAudSource.Play();
-                // myAudSource.PlayOneShot(audioLib.playerDeath);
+
+
                 GameOver();
             }
         }
@@ -240,7 +252,11 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator ShowBigHit()
     {
-       
+        myAudSource.Stop();
+        myAudSource.volume = 0.2f;
+        myAudSource.clip = audioLib.pAttackWide;
+        myAudSource.Play();
+
         currSwishTime = 0;
         swishTrail.enabled = true;
         swishPivot.position = playerBody.position;
@@ -261,7 +277,11 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator ShowSmallHit()
     {
-        
+        myAudSource.Stop();
+        myAudSource.volume = 0.05f;
+        myAudSource.clip = audioLib.pAttackPrecise;
+        myAudSource.Play();
+
         currSwishTime = 0;
         swishTrail.enabled = true;
         swishPivot.position = playerBody.position;
@@ -308,9 +328,7 @@ public class PlayerController : MonoBehaviour {
                     if(canSmallHit)
                     {
                         StartCoroutine(ShowSmallHit());
-                        myAudSource.Stop();
-                        myAudSource.clip = audioLib.pAttackPrecise;
-                        myAudSource.Play();
+                        
                     }
 
                 }
@@ -323,9 +341,6 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (canBigHit)
                     {
-                        myAudSource.Stop();
-                        myAudSource.clip = audioLib.pAttackWide;
-                        myAudSource.Play();
                         StartCoroutine(ShowBigHit());
                        // myAudSource.PlayOneShot(audioLib.playerAttackWide);
                     }

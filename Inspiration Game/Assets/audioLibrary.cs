@@ -6,7 +6,7 @@ public class audioLibrary : MonoBehaviour {
 
     public AudioClip pDeath, pMove, pAttackWide, pAttackPrecise;
     public AudioClip eDeath, eMove, eBullet, eLazer, eLazerBuildUp;
-    public AudioClip doorOpen, portalTeleport;
+    public AudioClip doorOpen, teleport;
 
 
     public static audioLibrary instance;

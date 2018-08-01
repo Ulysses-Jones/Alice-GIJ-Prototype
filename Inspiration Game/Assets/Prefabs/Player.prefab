@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23387723296577396}
   - component: {fileID: 54301248342729064}
   - component: {fileID: 114809133681894152}
-  - component: {fileID: 82951476353589410}
+  - component: {fileID: 82498819211505410}
   m_Layer: 8
   m_Name: PlayerBody
   m_TagString: Player
@@ -697,7 +697,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &82951476353589410
+--- !u!82 &82498819211505410
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -708,7 +708,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
