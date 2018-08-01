@@ -237,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496046427259248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.878682, y: -0.78999984, z: 8.253229}
+  m_LocalPosition: {x: 7.232436, y: -0.78999984, z: 12.532573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4845174354073766}
@@ -383,7 +383,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a85a5bfe0bbb09740ad6df5709bc510d, type: 2}
+  - {fileID: 2100000, guid: 938ff352df6463e4b935f8b1dc13cc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -417,7 +417,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f0302cdcb215f041bc9707afa791416, type: 2}
+  - {fileID: 2100000, guid: 301282bcd04aca74faa07ad75741ad3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -451,7 +451,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a85a5bfe0bbb09740ad6df5709bc510d, type: 2}
+  - {fileID: 2100000, guid: 938ff352df6463e4b935f8b1dc13cc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,7 +485,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f0302cdcb215f041bc9707afa791416, type: 2}
+  - {fileID: 2100000, guid: 301282bcd04aca74faa07ad75741ad3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -519,7 +519,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a85a5bfe0bbb09740ad6df5709bc510d, type: 2}
+  - {fileID: 2100000, guid: 938ff352df6463e4b935f8b1dc13cc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -553,7 +553,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f0302cdcb215f041bc9707afa791416, type: 2}
+  - {fileID: 2100000, guid: 301282bcd04aca74faa07ad75741ad3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -587,7 +587,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f0302cdcb215f041bc9707afa791416, type: 2}
+  - {fileID: 2100000, guid: 301282bcd04aca74faa07ad75741ad3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -621,7 +621,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f0302cdcb215f041bc9707afa791416, type: 2}
+  - {fileID: 2100000, guid: 301282bcd04aca74faa07ad75741ad3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -655,7 +655,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a85a5bfe0bbb09740ad6df5709bc510d, type: 2}
+  - {fileID: 2100000, guid: 938ff352df6463e4b935f8b1dc13cc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -689,7 +689,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a85a5bfe0bbb09740ad6df5709bc510d, type: 2}
+  - {fileID: 2100000, guid: 938ff352df6463e4b935f8b1dc13cc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,6 +869,7 @@ MonoBehaviour:
   direction: {x: -0.125, y: 0, z: 0.875}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -889,6 +890,7 @@ MonoBehaviour:
   direction: {x: 0.125, y: 0, z: 0.875}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -909,6 +911,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -929,6 +932,7 @@ MonoBehaviour:
   direction: {x: -0.25, y: 0, z: 0.75}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -949,6 +953,7 @@ MonoBehaviour:
   direction: {x: 0.25, y: 0, z: 0.75}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
