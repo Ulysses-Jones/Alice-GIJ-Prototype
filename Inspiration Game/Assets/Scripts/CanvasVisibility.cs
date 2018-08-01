@@ -72,13 +72,15 @@ public class CanvasVisibility : MonoBehaviour {
         {
             for (int i = 0; i < tempPlayerScript.HealthObj.Length; i++)
             {
+                gameObject.transform.GetChild(1).transform.GetChild(0).transform.GetChild(i).gameObject.SetActive(true);
                 tempPlayerScript.HealthObj[i] = gameObject.transform.GetChild(1).transform.GetChild(0).transform.GetChild(i).gameObject;
+                
             }
         }
         
     }
 
-    public void ForeignInvoke( string funcName, float callTime)
+    public void ForeignInvoke(string funcName, float callTime)
     {
         Invoke(funcName, callTime);
     }

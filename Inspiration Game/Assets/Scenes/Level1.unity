@@ -3643,8 +3643,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1014997272}
   - component: {fileID: 1014997271}
-  - component: {fileID: 1014997270}
   - component: {fileID: 1014997269}
+  - component: {fileID: 1014997270}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -3736,13 +3736,12 @@ AudioSource:
 --- !u!114 &1014997270
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114940487804444496, guid: 85822b00862ac9a4a9a6dad2bdbdae6e,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1014997268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c857c7e426dd6f246a05640c018efe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1014997271
@@ -3766,7 +3765,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1014997268}
   m_LocalRotation: {x: -0, y: -0.6759361, z: -0, w: 0.7369603}
-  m_LocalPosition: {x: 54.67, y: -1.0399998, z: 21.49}
+  m_LocalPosition: {x: 54.67, y: -0.09, z: 21.49}
   m_LocalScale: {x: 10, y: 2, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3835,7 +3834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 66.705, y: -22.571001, z: 5.94}
 --- !u!1 &1066779409
 GameObject:
@@ -5514,19 +5513,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.47576922
+      value: 0.47576943
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.000030193436
+      value: 0.00003322856
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.0000163302
+      value: -0.000017971826
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8795702
+      value: 0.8795701
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_RootOrder
@@ -5602,7 +5601,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1755571718}
-  m_LocalRotation: {x: 0.47576922, y: 0.000030193436, z: -0.0000163302, w: 0.8795702}
+  m_LocalRotation: {x: 0.47576943, y: 0.00003322856, z: -0.000017971826, w: 0.8795701}
   m_LocalPosition: {x: 20.9, y: 18.72005, z: -21.920002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

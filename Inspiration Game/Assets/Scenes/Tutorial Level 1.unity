@@ -2981,7 +2981,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165340128}
-  m_LocalRotation: {x: 0.47576943, y: 0.000018783388, z: -0.000010159753, w: 0.8795701}
+  m_LocalRotation: {x: 0.47576928, y: 0.000020863421, z: -0.00001128478, w: 0.8795701}
   m_LocalPosition: {x: -1.223854, y: 18.670052, z: -14.255243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4789,15 +4789,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.47576943
+      value: 0.47576928
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.000018783388
+      value: 0.000020863421
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.000010159753
+      value: -0.00001128478
       objectReference: {fileID: 0}
     - target: {fileID: 4812280192821156, guid: 7d9d2cd489f12334b8c840f156d0ddb0, type: 2}
       propertyPath: m_LocalRotation.w
@@ -4840,8 +4840,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1907170432}
   - component: {fileID: 1907170431}
-  - component: {fileID: 1907170430}
   - component: {fileID: 1907170429}
+  - component: {fileID: 1907170430}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -4933,13 +4933,12 @@ AudioSource:
 --- !u!114 &1907170430
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114940487804444496, guid: 85822b00862ac9a4a9a6dad2bdbdae6e,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907170428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c857c7e426dd6f246a05640c018efe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1907170431
@@ -4963,11 +4962,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907170428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.57, y: 1.48178, z: 70.53}
+  m_LocalPosition: {x: 15.57, y: 0.08, z: 64.75}
   m_LocalScale: {x: 10, y: 2, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959120741
 GameObject:

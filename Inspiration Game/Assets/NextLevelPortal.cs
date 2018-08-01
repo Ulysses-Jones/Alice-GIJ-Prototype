@@ -10,6 +10,8 @@ public class NextLevelPortal : MonoBehaviour {
     audioLibrary audioLib;
     AudioSource myAudSource;
 
+    bool changing = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -27,8 +29,9 @@ public class NextLevelPortal : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && changing == false)
         {
+            changing = true;
             myAudSource.Stop();
             myAudSource.clip = audioLib.teleport;
             myAudSource.Play();
