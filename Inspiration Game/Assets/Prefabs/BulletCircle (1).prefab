@@ -671,7 +671,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780744644469468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.22622, y: -0.78999996, z: -4.187215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4293361125067778}
@@ -2720,6 +2720,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2740,6 +2741,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2760,6 +2762,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2780,6 +2783,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2800,6 +2804,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2820,6 +2825,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2840,6 +2846,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2860,6 +2867,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2880,6 +2888,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2900,6 +2909,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2920,6 +2930,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2940,6 +2951,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2960,6 +2972,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -2980,6 +2993,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -3000,6 +3014,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:
@@ -3020,6 +3035,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 1}
   lifeTime: 10
   isPlayerBullet: 0
+  newMat: {fileID: 2100000, guid: a5612dd95004525499135f26de3286be, type: 2}
   bulletType: 0
   lazerShrinkRate: 0.25
   lazerMask:

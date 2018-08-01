@@ -18,7 +18,7 @@ public class DestroyableObject : MonoBehaviour {
 
 	void OnTriggerStay(Collider hit)
 	{
-		if (hit.gameObject.tag == "Hit" && playerScript.isBigParry)
+		if (hit.gameObject.tag == "Hit" && (playerScript.isBigParry || playerScript.isSmallParry))
 		{
 			destroyObject ();
 		}
