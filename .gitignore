@@ -37,3 +37,5 @@ sysinfo.txt
 Inspiration Game/Assets/Font.meta
 Inspiration Game/Assets/Cinemachine/CinemachineExamples.unitypackage.meta
 Inspiration Game/Assets/Scenes/Tutorial Level 1.unity
+*.meta
+Inspiration Game/Assets/Materials/RedEmission 1.mat.meta
