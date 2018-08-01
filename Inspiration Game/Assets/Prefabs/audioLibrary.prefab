@@ -51,11 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5420c76bb0ab4654e8c79330ad0a513a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDeath: {fileID: 8300000, guid: 8bc3824e966ea0d4ca9cec82663b393b, type: 3}
-  playerMove: {fileID: 8300000, guid: 18d089e84cc1307449c21cce5c218761, type: 3}
-  playerAttackWide: {fileID: 8300000, guid: ca100ea7c41f39048bc63cd5f87ff7e5, type: 3}
-  playerAttackPrecise: {fileID: 0}
-  enemyDeath: {fileID: 0}
-  enemyMove: {fileID: 0}
-  enemyBullet: {fileID: 0}
-  enemyLazer: {fileID: 0}
+  pDeath: {fileID: 8300000, guid: 69a32f5253708734eba26ea5f5c2da03, type: 3}
+  pMove: {fileID: 0}
+  pAttackWide: {fileID: 8300000, guid: 1ad0242c0418b1e4e892cf940081fb58, type: 3}
+  pAttackPrecise: {fileID: 8300000, guid: cd536b4c3b5f36441887e9cef4076725, type: 3}
+  eDeath: {fileID: 8300000, guid: 152a11d582a679c40bd0af44b478d575, type: 3}
+  eMove: {fileID: 0}
+  eBullet: {fileID: 8300000, guid: 31b7000f29339b84b84892e333a4812b, type: 3}
+  eLazer: {fileID: 8300000, guid: d67991647609e794ab62e3897716eb22, type: 3}
+  eLazerBuildUp: {fileID: 8300000, guid: d7997ee572e7da3469cea3e2f5cd231f, type: 3}
+  doorOpen: {fileID: 8300000, guid: 2c4d234687034724badba70a4550a00f, type: 3}
+  teleport: {fileID: 8300000, guid: 8c5ab01345ece9a4bad923daf96f5ed2, type: 3}
