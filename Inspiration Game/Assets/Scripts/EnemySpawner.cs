@@ -44,7 +44,10 @@ public class EnemySpawner : MonoBehaviour {
                         EnemyPool[k].transform.rotation = transform.rotation;
                         EnemyPool[k].SetActive(true);
 						EnemyPool [k].GetComponent<EnemyMovement> ().enemySpawnScript = this;
-                        break;
+						EnemyPool [k].GetComponent<EnemyMovement> ().isMoving = true;
+						EnemyPool [k].GetComponent<EnemyMovement> ().isFiring = false;
+						EnemyPool [k].GetComponent<EnemyMovement> ().inLineOfSight = false;
+						break;
                     }
                 }
                 NumEnemies++;
