@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour {
     public float playerHealth, swishSpeed, maxSwishTime;
     public GameObject Health1, Health2, Health3, Health4;
     public Material standardMaterial, hitMaterial;
-    public float maxInvulnerableTime;
+    public float InvulnerableTime = 1f;
+    public float ColourChangeTime =0.2f;
     public GameObject aimPointer;
 
     private Vector3 dir;
@@ -242,11 +243,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator ColourFlash()
+    {       
+        AliceRenderer.material = hitMaterial;
+        yield return new WaitForSecondsRealtime(ColourChangeTime);
+        AliceRenderer.material = standardMaterial;    
+    }
+
+    IEnumerator Invulnerability()
     {
         isInvulnerable = true;
-        AliceRenderer.material = hitMaterial;
-        yield return new WaitForSecondsRealtime(maxInvulnerableTime);
-        AliceRenderer.material = standardMaterial;
+        yield return new WaitForSecondsRealtime(InvulnerableTime);
         isInvulnerable = false;
     }
 
