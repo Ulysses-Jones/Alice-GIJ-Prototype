@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class DestroyableObject : MonoBehaviour {
 
-	private PlayerController playerScript;
-
 	// Use this for initialization
 	void Start () {
-		playerScript = GameObject.Find("PlayerBody").GetComponent<PlayerController>();
+		
 	}
 	
 	// Update is called once per frame
@@ -16,9 +14,9 @@ public class DestroyableObject : MonoBehaviour {
 		
 	}
 
-	void OnTriggerStay(Collider hit)
+	void OnTriggerEnter(Collider hit)
 	{
-		if (hit.gameObject.tag == "Hit" && playerScript.isBigParry)
+		if (hit.gameObject.tag == "Hit")
 		{
 			destroyObject ();
 		}
