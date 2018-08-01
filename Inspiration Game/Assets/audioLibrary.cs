@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class audioLibrary : MonoBehaviour {
 
-    public AudioClip playerDeath, playerMove, playerAttackWide, playerAttackPrecise;
-    public AudioClip enemyDeath, enemyMove, enemyBullet, enemyLazer;
+    public AudioClip pDeath, pMove, pAttackWide, pAttackPrecise;
+    public AudioClip eDeath, eMove, eBullet, eLazer, eLazerBuildUp;
+    public AudioClip doorOpen, teleport;
 
 
     public static audioLibrary instance;

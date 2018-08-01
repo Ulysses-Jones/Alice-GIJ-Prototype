@@ -101,12 +101,12 @@ public class BulletController : MonoBehaviour {
             //Debug.Log("work!");
             if(playerScript.isBigParry)
             {
-                this.direction = Vector3.Reflect(this.direction, playerTrans.forward);
+                transform.forward = Vector3.Reflect(this.direction, playerTrans.forward);
                 isPlayerBullet = true;
             }
             else if (playerScript.isSmallParry)
             {
-                this.direction = playerTrans.forward;
+                transform.forward = playerTrans.forward;
                 isPlayerBullet = true;
             }
             

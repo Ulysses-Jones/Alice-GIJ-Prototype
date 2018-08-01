@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
     private Renderer AliceRenderer;
 
     AudioSource myAudSource;
-    
     audioLibrary audioLib;
 
 
@@ -48,7 +47,8 @@ public class PlayerController : MonoBehaviour {
 
         swishTrail.enabled = false;
 
-        //audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
+        audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
+        myAudSource = playerBody.GetComponent<AudioSource>();
 
 		canBigHit = false;
 		canSmallHit = false;
@@ -147,7 +147,14 @@ public class PlayerController : MonoBehaviour {
             if (inDevice.Action3.IsPressed)
             {
                 if(canSmallHit)
+                {
+                    myAudSource.Stop();
+                    myAudSource.clip = audioLib.pAttackPrecise;
+                    myAudSource.Play();
+
                     StartCoroutine(ShowSmallHit());
+                }
+                    
             }
         }
         else
@@ -157,7 +164,12 @@ public class PlayerController : MonoBehaviour {
             if (inDevice.Action3.IsPressed)
             {
                 if(canBigHit)
+                {
+                   
+
                     StartCoroutine(ShowBigHit());
+                }
+                    
             }
 
             //movement
@@ -210,7 +222,13 @@ public class PlayerController : MonoBehaviour {
             {
                 //GAME OVER
                 Health1.SetActive(false);
-               // myAudSource.PlayOneShot(audioLib.playerDeath);
+
+                myAudSource.Stop();
+                myAudSource.volume = 0.2f;
+                myAudSource.clip = audioLib.pAttackWide;
+                myAudSource.Play();
+
+
                 GameOver();
             }
         }
@@ -234,7 +252,11 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator ShowBigHit()
     {
-       
+        myAudSource.Stop();
+        myAudSource.volume = 0.2f;
+        myAudSource.clip = audioLib.pAttackWide;
+        myAudSource.Play();
+
         currSwishTime = 0;
         swishTrail.enabled = true;
         swishPivot.position = playerBody.position;
@@ -255,7 +277,11 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator ShowSmallHit()
     {
-        
+        myAudSource.Stop();
+        myAudSource.volume = 0.05f;
+        myAudSource.clip = audioLib.pAttackPrecise;
+        myAudSource.Play();
+
         currSwishTime = 0;
         swishTrail.enabled = true;
         swishPivot.position = playerBody.position;
@@ -302,7 +328,7 @@ public class PlayerController : MonoBehaviour {
                     if(canSmallHit)
                     {
                         StartCoroutine(ShowSmallHit());
-                        myAudSource.PlayOneShot(audioLib.playerAttackPrecise);
+                        
                     }
 
                 }
