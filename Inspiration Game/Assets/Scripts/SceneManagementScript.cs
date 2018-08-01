@@ -31,7 +31,7 @@ public class SceneManagementScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         fadeScreen = GameObject.Find("ScreenFade").GetComponent<Image>();
-        canvas = GameObject.Find("Canvas").GetComponent<CanvasVisibility>();
+        canvas = GameObject.Find("UI Canvas").GetComponent<CanvasVisibility>();
 
     }
 
@@ -42,7 +42,7 @@ public class SceneManagementScript : MonoBehaviour {
 
         InputDevice inDevice = InputManager.ActiveDevice;
 
-        if (inDevice.MenuWasPressed && SceneManager.GetActiveScene().buildIndex == 0)//LOAD TUTORIAL
+        if ((inDevice.MenuWasPressed || Input.GetKeyDown(KeyCode.Return)) && SceneManager.GetActiveScene().buildIndex == 0)//LOAD TUTORIAL
         {
             FadeOut();
             
@@ -154,10 +154,44 @@ public class SceneManagementScript : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex>2)
+        if (SceneManager.GetActiveScene().buildIndex>0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
+    }
+
+    public void LoadLoseScreen()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void LoadWinScreen()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void PlayerLoss()
+    {
+        FadeOut();
+        canvas.ForeignInvoke("StartScreenOff", 0.5f);
+        canvas.ForeignInvoke("GameScreenOff", 0.5f);
+
+        Invoke("LoadNextLevel", 0.7f);
+
+        Invoke("FadeIn", 0.75f);
+        
+    }
+
+    public void PlayerWin()
+    {
+        FadeOut();
+        canvas.ForeignInvoke("StartScreenOff", 0.5f);
+        canvas.ForeignInvoke("GameScreenOff", 0.5f);
+
+        Invoke("LoadWinScreen", 0.7f);
+
+        Invoke("FadeIn", 0.75f);
+        
     }
 
     public void NextLevelTransition()
