@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
     private Renderer AliceRenderer;
 
     AudioSource myAudSource;
-    
     audioLibrary audioLib;
 
 
@@ -48,7 +47,8 @@ public class PlayerController : MonoBehaviour {
 
         swishTrail.enabled = false;
 
-        //audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
+        audioLib = GameObject.Find("audioLibrary").GetComponent<audioLibrary>();
+        myAudSource = playerBody.GetComponent<AudioSource>();
 
 		canBigHit = false;
 		canSmallHit = false;
@@ -193,6 +193,8 @@ public class PlayerController : MonoBehaviour {
             //player flashes red when hurt and is invulnerable for a short period
             StartCoroutine(ColourFlash());
 
+            
+
             //changing the health UI according to the health of player
             if (playerHealth == 3)
             {
@@ -210,7 +212,11 @@ public class PlayerController : MonoBehaviour {
             {
                 //GAME OVER
                 Health1.SetActive(false);
-               // myAudSource.PlayOneShot(audioLib.playerDeath);
+
+                myAudSource.Stop();
+                myAudSource.clip = audioLib.pDeath;
+                myAudSource.Play();
+                // myAudSource.PlayOneShot(audioLib.playerDeath);
                 GameOver();
             }
         }
@@ -302,7 +308,9 @@ public class PlayerController : MonoBehaviour {
                     if(canSmallHit)
                     {
                         StartCoroutine(ShowSmallHit());
-                        myAudSource.PlayOneShot(audioLib.playerAttackPrecise);
+                        myAudSource.Stop();
+                        myAudSource.clip = audioLib.pAttackPrecise;
+                        myAudSource.Play();
                     }
 
                 }
@@ -315,6 +323,9 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (canBigHit)
                     {
+                        myAudSource.Stop();
+                        myAudSource.clip = audioLib.pAttackWide;
+                        myAudSource.Play();
                         StartCoroutine(ShowBigHit());
                        // myAudSource.PlayOneShot(audioLib.playerAttackWide);
                     }
